@@ -1,18 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:textStyle="italic"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="25sp">
+    </androidx.appcompat.widget.AppCompatTextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <androidx.appcompat.widget.AppCompatEditText
+
+            android:id="@+id/firstNumber"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:hint="enter first number"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/secondNumber"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:hint="enter second number">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+    </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:height="50dp"
+        android:textSize="25sp"
+        android:hint="result">
+    </TextView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:gravity="center">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/additionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Addition">
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+    <Button
+        android:id="@+id/subtractionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subtraction">
+    </Button>
+
+    <Button
+        android:id="@+id/multiplicationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Multiplication">
+    </Button>
+
+    <Button
+        android:id="@+id/divisionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Division">
+    </Button>
+
+    <Button
+        android:id="@+id/squareRootButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Square Root">
+    </Button>
+
+    <Button
+        android:id="@+id/percentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Percent">
+    </Button>
+
+        <Button
+            android:id="@+id/pythagorasButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hypotenuse">
+        </Button>
+
+        <Button
+            android:id="@+id/areaOfCircleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Area of Circle">
+        </Button>
+
+        <Button
+            android:id="@+id/cylinderVolumeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cylinder Volume">
+        </Button>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+
+
+
+
+
+
+
