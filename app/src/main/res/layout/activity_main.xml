@@ -12,14 +12,20 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNumber2"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextNumber1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spinner"
+        android:layout_margin="20dp"
         android:hint="Siffra 1"
         android:inputType="numberDecimal"
         tools:ignore="TouchTargetSizeCheck" />
@@ -29,19 +35,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNumber1"
-        android:layout_marginTop="16dp"
+        android:layout_margin="20dp"
         android:hint="Siffra 2"
         android:inputType="numberDecimal"
         tools:ignore="TouchTargetSizeCheck" />
 
 
     <Button
+        android:id="@+id/calculateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner"
+        android:layout_below="@id/editTextNumber2"
         android:layout_marginTop="16dp"
         android:text="Beräkna"
-        android:id="@+id/calculateButton" />
+         />
 
     <TextView
         android:id="@+id/resultTextView"
