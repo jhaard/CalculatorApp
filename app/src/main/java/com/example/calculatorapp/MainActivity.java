@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "Pythagorean theorem":
                         result = Math.sqrt((num1 * num1) + (num2 * num2));
+                        break;
                     case "Area of the circle":
                         result = Math.PI * Math.pow(num1, 2);
                         break;
