@@ -1,6 +1,7 @@
 package com.example.calculatorapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -68,8 +69,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TextView resultTextView = findViewById(R.id.resultTextView);
 
-                double num1 = Double.parseDouble(editTextNumber1.getText().toString());
-                double num2 = Double.parseDouble(editTextNumber2.getText().toString());
+                String inputValue1 = "0";
+                String inputValue2 = "0";
+
+                inputValue1 = String.valueOf(editTextNumber1.getText());
+                inputValue2 = String.valueOf(editTextNumber2.getText());
+
+                double num1 = 0;
+                if (!inputValue1.isEmpty()) {
+                    num1 = Double.parseDouble(inputValue1);
+                }
+
+                double num2 = 0;
+                if (!inputValue2.isEmpty()) {
+                    num2 = Double.parseDouble(inputValue2);
+                }
 
                 String calculationOption = spinner.getSelectedItem().toString();
 
