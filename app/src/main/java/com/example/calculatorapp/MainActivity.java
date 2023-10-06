@@ -2,6 +2,7 @@ package com.example.calculatorapp;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText editTextNumber1;
+    private EditText editTextNumber2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        editTextNumber1 = findViewById(R.id.editTextNumber1);
+        editTextNumber2 = findViewById(R.id.editTextNumber2);
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -30,16 +36,36 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //när ngn väljr ngt i spinenr
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {//när använadre väljer ett item i spinner så körs denna kod
+                String calculationOption = parent.getItemAtPosition(position).toString();//får calculationOption som string
+                switch (calculationOption) {
+                    case "Square Root":
+                        editTextNumber2.setVisibility(View.INVISIBLE); //om man väljer roten ur så blir input 2 osyling
+                        break;
+                    case "Area of the circle":
+                        editTextNumber2.setVisibility(View.INVISIBLE);
+                        break;
+                    default:
+                        //The rest of the calculations need both inputs
+                        editTextNumber1.setVisibility(View.VISIBLE);
+                        editTextNumber2.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //nothing to do
+            }
+        });
         Button calculateButton = findViewById(R.id.calculateButton);
         calculateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                EditText editTextNumber1 = findViewById(R.id.editTextNumber1);
-                EditText editTextNumber2 = findViewById(R.id.editTextNumber2);
                 TextView resultTextView = findViewById(R.id.resultTextView);
-
-
                 double num1 = Double.parseDouble(editTextNumber1.getText().toString());
                 double num2 = Double.parseDouble(editTextNumber2.getText().toString());
 
@@ -66,14 +92,13 @@ public class MainActivity extends AppCompatActivity {
                         result = num1 * num2;
                         break;
                     case "Square Root":
-                        editTextNumber2.setVisibility(View.INVISIBLE);
                         if (num1 >= 0) {
                             result = Math.sqrt(num1); // Räkna ut kvadratroten av num1
                         } else {
                             resultTextView.setText("Invalid input");
                             return;
                         }
-                        // Lägg till fler beräkningar här...
+
                         break;
                     case "Procent":
                         if (num1 >= 0) {
@@ -88,21 +113,30 @@ public class MainActivity extends AppCompatActivity {
                         //  double result = Math.sqrt(Math.pow(num1, 2) + Math.pow(num2, 2));
                         //Math.sqrt(result = (( num1 * num1) + (num2 * num2));
                         result = Math.sqrt((num1 * num1) + (num2 * num2));
-                        break;
                     case "Area of the circle":
-                        calculateCircleArea(resultTextView);
+                        result = Math.PI * Math.pow(num1, 2);
                         break;
                     default: //This line should never being reached but added just for safety
                         break;
-                }
+                    case "Cylinder Volym":
+                        result = Math.PI * Math.pow(num1, 2) * num2;
+                        break;
+
+
+//                        break;
+//                    case "Area of the circle":
+//                        calculateCircleArea(resultTextView);
+//                        break;
+//                    default: //This line should never being reached but added just for safety
+//                        break;
+               }
                 resultTextView.setText("Resultat: " + result);
             }
         });
     }
 
     private void calculateCircleArea(TextView resultTextView) {
-        BreakIterator radiusEditText = null;
-        String radiusStr = radiusEditText.getText().toString();
+        String radiusStr = editTextNumber1.getText().toString();
 
         if (!radiusStr.isEmpty()) {
             double radius = Double.parseDouble(radiusStr);
