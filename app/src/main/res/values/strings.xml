@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TryOut</string>
+    <string name="app_name">CalculatorApp</string>
 
     <string-array name="calculation_options">
         <item>Addition</item>
@@ -10,6 +10,7 @@
         <item>Procent</item>
         <item>Pythagorean theorem</item>
         <item>Area of the circle</item>
+        <item>Cylinder Volym</item>
         <!-- Lägg till fler alternativ här... -->
     </string-array>
 

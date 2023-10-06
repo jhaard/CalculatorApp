@@ -12,7 +12,6 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNumber2"
         android:layout_marginTop="16dp"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -20,6 +19,7 @@
         android:id="@+id/editTextNumber1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spinner"
         android:hint="Siffra 1"
         android:inputType="numberDecimal"
         tools:ignore="TouchTargetSizeCheck" />
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="120dp"
         android:text="Beräkna"
         android:id="@+id/calculateButton" />
 
@@ -48,8 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/calculateButton"
-        android:layout_marginTop="16dp"
-        android:text=""
+        android:layout_marginTop="40dp"
+        android:text="Resultat"
         android:textAlignment="center"
         android:textSize="24sp" />
 </RelativeLayout>
