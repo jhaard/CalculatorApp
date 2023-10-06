@@ -1,7 +1,6 @@
 package com.example.calculatorapp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         editTextNumber1 = findViewById(R.id.editTextNumber1);
         editTextNumber2 = findViewById(R.id.editTextNumber2);
 
-
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //när ngn väljr ngt i spinenr
             @Override
@@ -114,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                             resultTextView.setText("Invalid input");
                             return;
                         }
-
                         break;
                     case "Procent":
                         if (num1 >= 0) {
@@ -134,22 +130,12 @@ public class MainActivity extends AppCompatActivity {
                     case "Cylinder Volym":
                         result = Math.PI * Math.pow(num1, 2) * num2;
                         break;
-
-
-
-//                        break;
-//                    case "Area of the circle":
-//                        calculateCircleArea(resultTextView);
-//                        break;
-//                    default: //This line should never being reached but added just for safety
-//                        break;
                }
 
                 resultTextView.setText("Resultat: " + result);
             }
         });
     }
-
 
     private void calculateCircleArea(TextView resultTextView) {
         String radiusStr = editTextNumber1.getText().toString();
@@ -161,7 +147,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             resultTextView.setText("Ange en radie för att beräkna cirkelns area.");
         }
-
     }
-
 }
