@@ -8,10 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextNumber1;
@@ -21,9 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+      
         editTextNumber1 = findViewById(R.id.editTextNumber1);
         editTextNumber2 = findViewById(R.id.editTextNumber2);
+
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -35,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //när ngn väljr ngt i spinenr
             @Override
@@ -60,12 +59,15 @@ public class MainActivity extends AppCompatActivity {
                 //nothing to do
             }
         });
+
         Button calculateButton = findViewById(R.id.calculateButton);
+
         calculateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 TextView resultTextView = findViewById(R.id.resultTextView);
+
                 double num1 = Double.parseDouble(editTextNumber1.getText().toString());
                 double num2 = Double.parseDouble(editTextNumber2.getText().toString());
 
@@ -109,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case "Pythagorean theorem":
-                        //   result = (( num1 * num1) + (num2 * num2))^0.5;
-                        //  double result = Math.sqrt(Math.pow(num1, 2) + Math.pow(num2, 2));
-                        //Math.sqrt(result = (( num1 * num1) + (num2 * num2));
                         result = Math.sqrt((num1 * num1) + (num2 * num2));
                     case "Area of the circle":
                         result = Math.PI * Math.pow(num1, 2);
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
 
+
 //                        break;
 //                    case "Area of the circle":
 //                        calculateCircleArea(resultTextView);
@@ -130,10 +130,12 @@ public class MainActivity extends AppCompatActivity {
 //                    default: //This line should never being reached but added just for safety
 //                        break;
                }
+
                 resultTextView.setText("Resultat: " + result);
             }
         });
     }
+
 
     private void calculateCircleArea(TextView resultTextView) {
         String radiusStr = editTextNumber1.getText().toString();
@@ -146,6 +148,6 @@ public class MainActivity extends AppCompatActivity {
             resultTextView.setText("Ange en radie för att beräkna cirkelns area.");
         }
 
-
     }
+
 }
