@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      
+
         editTextNumber1 = findViewById(R.id.editTextNumber1);
         editTextNumber2 = findViewById(R.id.editTextNumber2);
 
@@ -68,59 +70,62 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TextView resultTextView = findViewById(R.id.resultTextView);
 
-                double num1 = Double.parseDouble(editTextNumber1.getText().toString());
-                double num2 = Double.parseDouble(editTextNumber2.getText().toString());
+                // Added exceptionhandler to throw missing inputs.
+                // Still bugs if you choose square root for example with empty invisible input.
+                try {
+                    double num1 = Double.parseDouble(editTextNumber1.getText().toString());
+                    double num2 = Double.parseDouble(editTextNumber2.getText().toString());
 
-                String calculationOption = spinner.getSelectedItem().toString();
+                    String calculationOption = spinner.getSelectedItem().toString();
 
-                double result = 0.0;
+                    double result = 0.0;
 
-                switch (calculationOption) {
-                    case "Addition":
-                        result = num1 + num2;
-                        break;
-                    case "Subtraction":
-                        result = num1 - num2;
-                        break;
-                    case "Division":
-                        if (num2 != 0) {
-                            result = num1 / num2;
-                        } else {
-                            resultTextView.setText("Cannot divide by zero");
-                            return;
-                        }
-                        break;
-                    case "Multiplication":
-                        result = num1 * num2;
-                        break;
-                    case "Square Root":
-                        if (num1 >= 0) {
-                            result = Math.sqrt(num1); // Räkna ut kvadratroten av num1
-                        } else {
-                            resultTextView.setText("Invalid input");
-                            return;
-                        }
+                    switch (calculationOption) {
+                        case "Addition":
+                            result = num1 + num2;
+                            break;
+                        case "Subtraction":
+                            result = num1 - num2;
+                            break;
+                        case "Division":
+                            if (num2 != 0) {
+                                result = num1 / num2;
+                            } else {
+                                resultTextView.setText("Cannot divide by zero");
+                                return;
+                            }
+                            break;
+                        case "Multiplication":
+                            result = num1 * num2;
+                            break;
+                        case "Square Root":
+                            if (num1 >= 0) {
+                                result = Math.sqrt(num1); // Räkna ut kvadratroten av num1
+                            } else {
+                                resultTextView.setText("Invalid input");
+                                return;
+                            }
 
-                        break;
-                    case "Procent":
-                        if (num1 >= 0) {
-                            result = num1 / 100; //samma som (x/y)*100??
-                        } else {
-                            resultTextView.setText("Invalid input");
-                            return;
-                        }
-                        break;
-                    case "Pythagorean theorem":
-                        result = Math.sqrt((num1 * num1) + (num2 * num2));
-                    case "Area of the circle":
-                        result = Math.PI * Math.pow(num1, 2);
-                        break;
-                    default: //This line should never being reached but added just for safety
-                        break;
-                    case "Cylinder Volym":
-                        result = Math.PI * Math.pow(num1, 2) * num2;
-                        break;
-
+                            break;
+                        case "Procent":
+                            if (num1 >= 0) {
+                                result = num1 / 100; //samma som (x/y)*100??
+                            } else {
+                                resultTextView.setText("Invalid input");
+                                return;
+                            }
+                            break;
+                        case "Pythagorean theorem":
+                            result = Math.sqrt((num1 * num1) + (num2 * num2));
+                            break;
+                        case "Area of the circle":
+                            result = Math.PI * Math.pow(num1, 2);
+                            break;
+                        default: //This line should never being reached but added just for safety
+                            break;
+                        case "Cylinder Volym":
+                            result = Math.PI * Math.pow(num1, 2) * num2;
+                            break;
 
 
 //                        break;
@@ -129,9 +134,12 @@ public class MainActivity extends AppCompatActivity {
 //                        break;
 //                    default: //This line should never being reached but added just for safety
 //                        break;
-               }
+                    }
 
-                resultTextView.setText("Resultat: " + result);
+                    resultTextView.setText("Resultat: " + result);
+                } catch (NumberFormatException nfe) {
+                    resultTextView.setText("Missing input");
+                }
             }
         });
     }
