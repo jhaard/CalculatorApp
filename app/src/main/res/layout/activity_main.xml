@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner"
-        android:hint="Siffra 1"
+        android:hint="@string/siffra_1"
         android:inputType="numberDecimal"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNumber1"
         android:layout_marginTop="16dp"
-        android:hint="Siffra 2"
+        android:hint="@string/siffra_2"
         android:inputType="numberDecimal"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner"
         android:layout_marginTop="120dp"
-        android:text="Beräkna"
+        android:text="@string/calculate"
         android:id="@+id/calculateButton" />
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/calculateButton"
         android:layout_marginTop="40dp"
-        android:text="Resultat"
+        android:text="@string/result_text_view"
         android:textAlignment="center"
         android:textSize="24sp" />
 </RelativeLayout>

@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">CalculatorApp</string>
+    <string name="invalid_input">Invalid input</string>
+    <string name="cannot_divide_by_zero">Cannot divide by zero</string>
+    <string name="result">"Result: "</string>
+    <string name="invalid_circle_area_input">Enter a radius to calculate the area of the circle.</string>
+    <string name="area_of_circle">"The area of the circle is: "</string>
+    <string name="volume_of_cylinder">"The volume of the circle is  "</string>
+    <string name="invalid_volume_input">Enter both radius and height to calculate the volume.</string>
+    <string name="siffra_1">Siffra 1</string>
+    <string name="siffra_2">Siffra 2</string>
+    <string name="calculate">Calculate</string>
+    <string name="result_text_view">Result</string>
 
     <string-array name="calculation_options">
         <item>Addition</item>
@@ -8,10 +19,10 @@
         <item>Multiplication</item>
         <item>Square Root</item>
         <item>Procent</item>
-        <item>Pythagorean theorem</item>
-        <item>Area of the circle</item>
-        <item>Cylinder Volym</item>
-        <!-- Lägg till fler alternativ här... -->
+        <item>Pythagorean Theorem</item>
+        <item>Area of the Circle</item>
+        <item>Cylinder Volume</item>
+
     </string-array>
 
 </resources>
