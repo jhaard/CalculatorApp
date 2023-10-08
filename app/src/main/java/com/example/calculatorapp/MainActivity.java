@@ -1,4 +1,4 @@
-
+// Team Super Monkeys
 //Sebastian Svedberg
 //Sara Sharif
 //Okechukwu Nnoham
@@ -9,7 +9,6 @@
 
 package com.example.calculatorapp;
 
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,8 +18,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextNumber1; //Deklararer en field som pekar mot edit text Denna kan
@@ -65,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                     case "Square Root":
                         editTextNumber2.setVisibility(View.INVISIBLE); //om man väljer roten ur så blir input 2 osyling
                         break;
+                    case "Procent":
+                        editTextNumber2.setVisibility(View.INVISIBLE);
+                        break;
                     case "Area of the Circle":
                         editTextNumber2.setVisibility(View.INVISIBLE);
                         break;
@@ -90,9 +90,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TextView resultTextView = findViewById(R.id.resultTextView);
 
+                // The input values need defualt value in case the user doesn't enter or can't enter a value.
                 String inputValue1 = "0";
                 String inputValue2 = "0";
 
+                // Get the text value of the input field and convert to String.
                 inputValue1 = String.valueOf(editTextNumber1.getText());
                 inputValue2 = String.valueOf(editTextNumber2.getText());
 
